@@ -63,7 +63,7 @@ const Button = styled.button`
 
 const Register = () => {
     return (
-      <Link to="/register"> 
+      <Link style={{textDecoration:'none', color:'black'}} to="/register"> 
         <Container>
             <Wrapper>
                 <Title>CREATE AN ACCOUNT</Title>

@@ -74,13 +74,13 @@ const Navbar = () => {
                     <Logo>ERROR</Logo>
                 </Center>
                 <Right>
-                    <Link to ="/register">
+                    <Link style={{textDecoration:'none', color:'black'}} to ="/register">
                       <MenuItem>REGISTER</MenuItem>
                     </Link>  
-                    <Link to ="/login">
+                    <Link style={{textDecoration:'none', color:'black'}} to ="/login">
                       <MenuItem>SIN IN </MenuItem>
                     </Link>
-                    <Link to ="/cart">
+                    <Link style={{textDecoration:'none', color:'black'}} to ="/cart">
                       <MenuItem>
                           <Badge badgeContent={4} color="secondary">
                               <ShoppingCartOutlined />
