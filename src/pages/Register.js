@@ -46,6 +46,7 @@ const Input = styled.input`
 const Agreement = styled.span`
   font-size: 16px;
   margin: 20px 0px;
+  text-align:center;
 `;
 
 const Button = styled.button`
@@ -62,7 +63,7 @@ const Button = styled.button`
 const Register = () => {
     return (
       <Link to="/register"> 
-           <Container>
+        <Container>
             <Wrapper>
                 <Title>CREATE AN ACCOUNT</Title>
                 <Form>
@@ -79,7 +80,7 @@ const Register = () => {
                 <Button>CREATE</Button>
                 </Form>
             </Wrapper>
-       </Container>
+        </Container>
       </Link>
       
     )

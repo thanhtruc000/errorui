@@ -51,8 +51,8 @@ const Button = styled.button`
   font-weight:600;
 `;
 
-const LinkTo = styled.a`
-  margin: 5px 0px;
+const LinkTo = styled.p`
+  margin: 5px 10px;
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
@@ -69,7 +69,7 @@ const Login = () => {
                     <Input placeholder="Username" />
                     <Input type="password" placeholder="Password" />
                     <Button>LOGIN</Button>
-                    <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+                    <LinkTo>DO NOT YOU REMEMBER THE PASSWORD?</LinkTo>
                     <Link to="/register">
                         <LinkTo>CREATE A NEW ACCOUNT</LinkTo>
                     </Link>
