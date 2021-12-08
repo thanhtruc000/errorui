@@ -112,7 +112,7 @@ import {
           </SocialContainer>
         </Left>
         <Center>
-          <Title>Useful Links</Title>
+          <Title>About Us</Title>
           <List>
             <ListItem>Home</ListItem>
             <ListItem>News</ListItem>
