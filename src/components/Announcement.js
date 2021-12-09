@@ -11,10 +11,12 @@ const Container = styled.div`
     font-size: 14px;
     font-weight:500;
 `;
+
 const Announcement = () => {
     return (
        <Container>
-           Super Deal! Free Shipping on Orders Over $50
+           {/* Super Deal! Free Shipping on Orders Over $50 */}
+           <marquee style={{fontSize:'14px', fontWeight:'600'}}>60-DAY EXTENDED FREE RETURNS</marquee>
        </Container>
     )
 }
