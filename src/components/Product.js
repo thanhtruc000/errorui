@@ -30,8 +30,8 @@ import styled from "styled-components";
     display: flex;
     align-items: center;
     justify-content: center;
-    ${'' /* background-color: #f5fbfd; */}
-    background-color: #CD853F;
+    ${'' /* background-color: #CD853F; */}
+    background-color:#F0F0F0;
     position: relative;
     &:hover ${Info}{
       opacity: 1;

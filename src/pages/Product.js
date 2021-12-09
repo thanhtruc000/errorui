@@ -142,6 +142,7 @@ const Product = () => {
               <FilterColor color="darkblue" />
               <FilterColor color="gray" />
               <FilterColor color="pink"/>
+              <FilterColor color="purple"/>
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>

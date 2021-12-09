@@ -57,6 +57,7 @@ const ProductList = () => {
             <Option>Green</Option>
             <Option>Pink</Option>
             <Option>Orange</Option>
+            <Option>Purple</Option>
           </Select>
           <Select>
             <Option disabled selected>
