@@ -64,11 +64,18 @@ const Navbar = () => {
        <Container>
             <Wrapper>
                 <Left>
-                    <Language>EN</Language>
+                    {/* <Language>EN</Language>
                     <SearchContainer>
                        <Input/>
                        <Search style={{color:"gray", fontSize:16}}/>
-                    </SearchContainer>
+                    </SearchContainer> */}
+                    <Link style={{textDecoration:'none', color:'black'}} to="/">
+                      <MenuItem>HomePage</MenuItem>
+                    </Link>
+                    <Link style={{textDecoration:'none', color:'black'}} to="/productList">
+                      <MenuItem>Product</MenuItem>
+                    </Link>
+                    <MenuItem>Blog</MenuItem>
                 </Left>
                 <Center>
                     <Logo>ERROR</Logo>
