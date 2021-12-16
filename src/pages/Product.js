@@ -61,7 +61,9 @@ const FilterTitle = styled.span`
   font-size: 20px;
   font-weight: 200;
 `;
-
+const FilterTitleSize = styled.span`
+  margin-left: 30px;
+`;
 const FilterColor = styled.div`
   width: 20px;
   height: 20px;
@@ -144,8 +146,8 @@ const Product = () => {
               <FilterColor color="pink"/>
               <FilterColor color="purple"/>
             </Filter>
-            <Filter>
-              <FilterTitle>Size</FilterTitle>
+            <Filter> 
+            <FilterTitleSize>Size</FilterTitleSize>
               <FilterSize>
                 <FilterSizeOption>39</FilterSizeOption>
                 <FilterSizeOption>40</FilterSizeOption>
