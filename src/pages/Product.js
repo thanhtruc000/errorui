@@ -118,6 +118,12 @@ const Button = styled.button`
   }
 `;
 
+const ImageSize = styled.img`
+  width:100%;
+  height:50%;
+  margin-top:40px;
+`;
+
 const Product = () => {
   return (
     <Container>
@@ -165,6 +171,7 @@ const Product = () => {
             </AmountContainer>
             <Button>ADD TO CART</Button>
           </AddContainer>
+          <ImageSize src="https://giaycaosmartmen.com/wp-content/uploads/2020/09/bang-size-giay-converse.png"></ImageSize>
         </InfoContainer>
       </Wrapper>
       <Newsletter />
