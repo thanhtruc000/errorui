@@ -1,3 +1,4 @@
+import React, {useState} from "react";
 import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
@@ -5,6 +6,8 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
+
+import "./Product.css";
 
 const Container = styled.div``;
 
@@ -113,18 +116,27 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 800;
   &:hover{
-      ${'' /* background-color: #f8f4f4; */}
       background-color: #B0B0B0 ;
   }
 `;
 
-const ImageSize = styled.img`
-  width:100%;
-  height:50%;
-  margin-top:40px;
-`;
+// const ImageSize = styled.img`
+//   width:100%;
+//   height:50%;
+//   margin-top:30px;
+// `;
+
 
 const Product = () => {
+  const [modal, setModal] = useState(false);
+  const toggleModal = ()=>{
+    setModal(!modal);
+  };
+  if(modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
   return (
     <Container>
       <Navbar />
@@ -171,7 +183,23 @@ const Product = () => {
             </AmountContainer>
             <Button>ADD TO CART</Button>
           </AddContainer>
-          <ImageSize src="https://giaycaosmartmen.com/wp-content/uploads/2020/09/bang-size-giay-converse.png"></ImageSize>
+          {/* <ImageSize src="https://giaycaosmartmen.com/wp-content/uploads/2020/09/bang-size-giay-converse.png"></ImageSize> */}
+            <button onClick={toggleModal} className="btn-modal">
+                Size Chart
+            </button>
+            {modal && (
+              <div className="modal">
+                <div onClick={toggleModal} className="overlay"></div>
+                <div className="modal-content">
+                  <h2>Size Chart</h2>
+                  <img className="img-size" src="https://giaycaosmartmen.com/wp-content/uploads/2020/09/bang-size-giay-converse.png"></img>
+                  <button className="close-modal" onClick={toggleModal}>
+                      CLOSE
+                  </button>
+                </div>
+              </div>
+            )}
+          
         </InfoContainer>
       </Wrapper>
       <Newsletter />
