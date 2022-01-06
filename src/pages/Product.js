@@ -120,11 +120,9 @@ const Button = styled.button`
   }
 `;
 
-// const ImageSize = styled.img`
-//   width:100%;
-//   height:50%;
-//   margin-top:30px;
-// `;
+const ImageSize = styled.img`
+  width:100%;
+`;
 
 
 const Product = () => {
@@ -192,7 +190,7 @@ const Product = () => {
                 <div onClick={toggleModal} className="overlay"></div>
                 <div className="modal-content">
                   <h2>Size Chart</h2>
-                  <img className="img-size" src="https://giaycaosmartmen.com/wp-content/uploads/2020/09/bang-size-giay-converse.png"></img>
+                  <ImageSize src="https://giaycaosmartmen.com/wp-content/uploads/2020/09/bang-size-giay-converse.png"></ImageSize>
                   <button className="close-modal" onClick={toggleModal}>
                       CLOSE
                   </button>

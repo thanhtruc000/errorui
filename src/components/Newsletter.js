@@ -1,66 +1,24 @@
-//import { Send } from "@material-ui/icons";
+import React from 'react'
 import styled from "styled-components";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
-  height: 60vh;
-  ${'' /* background-color: coral; */}
-  display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  height: 60vh;
 `;
 const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  ${mobile({ height: "20vh" })}
+    width: 100%;
 `;
 
-// const Desc = styled.div`
-//   font-size: 24px;
-//   font-weight: 300;
-//   margin-bottom: 20px;
-//   ${mobile({ textAlign: "center" })}
-// `;
-
-// const InputContainer = styled.div`
-//   width: 50%;
-//   height: 40px;
-//   background-color: white;
-//   display: flex;
-//   justify-content: space-between;
-//   border: 1px solid lightgray;
-//   ${mobile({ width: "80%" })}
-// `;
-
-// const Input = styled.input`
-//   border: none;
-//   flex: 8;
-//   padding-left: 20px;
-// `;
-
-// const Button = styled.button`
-//   flex: 1;
-//   border: none;
-//   background-color: teal;
-//   color: white;
-// `;
 
 const Newsletter = () => {
-  return (
-    <Container>
-      {/* <Title>Newsletter</Title>
-      <Desc>Get timely updates from your favorite products.</Desc>
-      <InputContainer>
-        <Input placeholder="Your email" />
-        <Button>
-          <Send />
-        </Button>
-      </InputContainer> */}
-     <Image src="https://snkrvn.com/wp-content/uploads/2021/02/CLOT-x-Nike-AIr-Max-1-Kiss-of-The-Death-11.jpg"/>
-    </Container>
-  );
-};
+    return (
+        <Container>
+            <Image src="https://www.converse.com/on/demandware.static/-/Library-Sites-SharedLibrary/default/dw0389e46e/firstspirit/media/homepage_1/2021_holiday_3/12_16/D-Converse-GBL-HP-12-16-P7-Email-Acc-HO21.jpg"/>
+           
+        </Container>
+    )
+}
 
-export default Newsletter;
+export default Newsletter

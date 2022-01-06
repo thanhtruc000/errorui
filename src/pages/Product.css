@@ -7,10 +7,10 @@
     display: block;
     font-size: 14px;
     margin-top: 30px;
-    border: 1.3px solid  black;
-    background-color: white;
-    cursor: pointer;
-    font-weight: 500;
+    border: 1.3px solid  black; 
+    background-color: white; 
+    cursor: pointer; 
+    font-weight: 800;
 }
 
 .modal, .overlay {
@@ -37,9 +37,6 @@
     border-radius: 3px;
     max-width: 600px;
     min-width: 300px;
-}
-.img-size{
-    width: 100%;
 }
 
 .close-modal {
