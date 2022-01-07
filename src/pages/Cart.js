@@ -171,15 +171,15 @@ const Cart = () => {
           <Info>
             <Product>
               <ProductDetail>
-                <Image src="https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw47819f61/images/a_107/172006C_A_107X1.jpg?sw=964" />
+                <Image src="https://i.ibb.co/rsBhnYb/X9000L4.png" />
                 <Details>
                   <ProductName>
-                    <b>Product:</b> Chuck 70 Sherpa
+                    <b>Product:</b> X9000L4
                   </ProductName>
                   <ProductId>
                     <b>ID:</b> 1000
                   </ProductId>
-                  <ProductColor color="white" />
+                  <ProductColor color="orchid-tint" />
                   <ProductSize>
                     <b>Size:</b> 40
                   </ProductSize>
@@ -197,7 +197,7 @@ const Cart = () => {
             <Hr />
             <Product>
               <ProductDetail>
-                <Image src="https://www.converse.com/dw/image/v2/BCZC_PRD/on/demandware.static/-/Sites-cnv-master-catalog/default/dw8d46bc70/images/a_107/171997C_A_107X1.jpg?sw=964" />
+                <Image src="https://i.ibb.co/R6b0xr6/removal-ai-tmp-61d7bd7b3193a.png" />
                 <Details>
                   <ProductName>
                     <b>Product:</b> Chuck Taylor All Star CX
@@ -205,7 +205,7 @@ const Cart = () => {
                   <ProductId>
                     <b>ID:</b> 1001
                   </ProductId>
-                  <ProductColor color="cargo khaki" />
+                  <ProductColor color="black" />
                   <ProductSize>
                     <b>Size:</b> 42
                   </ProductSize>

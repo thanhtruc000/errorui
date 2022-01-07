@@ -3,14 +3,14 @@ import React from 'react'
 import styled from 'styled-components';
 import { useState } from 'react';
 import { sliderItems } from '../data';
-
+import {mobile} from "../responsive";
 
 const Container = styled.div`
     width:100%;
     height:100vh;
     display:flex;
-   ${'' /* background-color: coral; */}
-   overflow: hidden;
+    overflow: hidden;
+    ${mobile({ display: "none" })}
 `;
 const Arrow = styled.div`
     width:50px;
@@ -48,9 +48,9 @@ const ImgContainer = styled.div`
 `;
 const Image = styled.img`
    height: 80%;
-   width:400px;
+   ${'' /* width:400px;
    margin:68px;
-  padding:8px;
+  padding:8px; */}
 `;
 const InfoContainer = styled.div`
    flex:1;
