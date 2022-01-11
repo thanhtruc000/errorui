@@ -56,7 +56,16 @@ const MenuItem = styled.div`
   margin-left:25px;
   font-weight:800;
 `;
-
+const Button = styled.button`
+  padding: 5px;
+  border: 2px solid  black;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 800;
+  &:hover{
+      background-color: #B0B0B0 ;
+  }
+`;
 
 const Navbar = () => {
   // const quantity = useSelector(state=>state.cart.quantity)
@@ -87,9 +96,11 @@ const Navbar = () => {
                     <Link style={{textDecoration:'none', color:'black'}} to ="/login">
                       <MenuItem>SIN IN </MenuItem>
                     </Link>
-                    <Link style={{textDecoration:'none', color:'black'}} to ="/logout">
-                      <MenuItem>LOG OUT </MenuItem>
-                    </Link>
+                    <MenuItem>
+                      <Button>
+                          LOG OUT
+                      </Button>
+                    </MenuItem>
                     <Link style={{textDecoration:'none', color:'black'}} to ="/cart">
                       <MenuItem>
                           <Badge badgeContent={2} color="secondary">
