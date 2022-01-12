@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { Link } from 'react-router-dom';
-
+import axios from "axios";
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -62,29 +62,54 @@ const Button = styled.button`
 
 
 const Register = () => {
+
+  const DangKy = async (user) => {
+  try {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
+    user = {
+      username : username,
+      email: email,
+      password: password  
+    }
+    const response = await axios
+      .post("https://error-api.herokuapp.com/api/auth/register", user)
+      .then((res) => res.user)
+      .catch((err) => err);
+    
+      console.log('respose: ', response);
+      console.log(user);
+      console.log(username);
+      console.log(user.username);
+      
+  } catch (err) {
+    console.log(err);
+  }
+}
+
     return (
       <Link style={{textDecoration:'none', color:'black'}} to="/register"> 
         <Container>
             <Wrapper>
                 <Title>CREATE AN ACCOUNT</Title>
                 <Form>
-                <Input placeholder="Name" />
-                <Input placeholder="Last name" />
-                <Input placeholder="Username" />
-                <Input placeholder="Email" />
-                <Input type="password" placeholder="Password" />
-                <Input type="password" placeholder="Confirm password" />
+               <Input placeholder="Username" id="username" />
+                <Input placeholder="Email" id="email" />
+                <Input type="password" placeholder="Password"  id="password"/>
+               
+                
                 <Agreement>
                     By creating an account, I consent to the processing of my personal
-                    data in accordance with the <b>PRIVACY POLICY</b>
+                   data in accordance with the <b>PRIVACY POLICY</b>
                 </Agreement>
-                <Button>CREATE</Button>
-                </Form>
+                <Button type="submit" onClick={DangKy}>CREATE</Button>
+               </Form>
+                
             </Wrapper>
         </Container>
       </Link>
       
     )
-}
-
+ }            
 export default Register

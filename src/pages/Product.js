@@ -5,7 +5,14 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import { publicRequest } from "../requestMethods";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from "react-redux";
 
+import "./Product.css";
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -62,6 +69,10 @@ const FilterTitle = styled.span`
   font-weight: 200;
 `;
 
+const FilterTitleSize = styled.span`
+  margin-left: 30px;
+`;
+
 const FilterColor = styled.div`
   width: 20px;
   height: 20px;
@@ -115,54 +126,108 @@ const Button = styled.button`
       background-color: #B0B0B0 ;
   }
 `;
+const ImageSize = styled.img`
+  width:100%;
+`;
+
 
 const Product = () => {
+
+  const [modal, setModal] = useState(false);
+  const toggleModal = ()=>{
+    setModal(!modal);
+  };
+  if(modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
+  
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const [product,setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    const getProduct = async () =>{
+      try{
+        const res = await publicRequest.get("/products/find/" + id)
+        setProduct(res.data);
+      }catch {}
+    }
+    getProduct()
+  }, [id])
+
+const handleQuantity = (type) => {
+  if(type ==="dec"){
+     quantity >1 && setQuantity(quantity -1)
+  } else {
+    setQuantity(quantity +1)
+  }
+}
+
+const handleClick = () => {
+  dispatch(
+    addProduct({ ...product, quantity, color, size })
+  );
+};
   return (
     <Container>
       <Navbar />
       <Announcement />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/8ca8607f4c344ffd966eaca6011245ac_9366/Ultraboost_21_Shoes_White_FY0379_01_standard.jpg" />
+          <Image src= {product.img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>ULTRABOOST 21</Title>
+          <Title>{product.title}</Title>
           <Desc>
-          DESCRIPTION <br/>
-          Prototype after prototype. Innovation after innovation. Testing after testing. 
-          Meet us in the hot pursuit of the pinnacle harmonization of weight, cushioning, and responsiveness. Ultraboost 21. Say hello to incredible energy return.
-
+            {product.description}
           </Desc>
-          <Price>$ 99.90</Price>
+          <Price>{product.price} VNĐ</Price>
           <FilterContainer>
-            <Filter>
+          <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="white" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
-              <FilterColor color="pink"/>
-              <FilterColor color="purple"/>
+              {product.color?.map((c) => (
+                <FilterColor color={c} key={c} onClick={()=> setColor(c)}/>
+              ))}
             </Filter>
             <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>39</FilterSizeOption>
-                <FilterSizeOption>40</FilterSizeOption>
-                <FilterSizeOption>41</FilterSizeOption>
-                <FilterSizeOption>42</FilterSizeOption>
-                <FilterSizeOption>43</FilterSizeOption>
+            <FilterTitleSize>Size</FilterTitleSize>
+              <FilterSize onChange={(e)=> setSize(e.target.value)}>
+              {product.size?.map((s) => (
+                 <FilterSizeOption key={s}>{s}</FilterSizeOption>
+                ))}
+                
               </FilterSize>
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick = {()=> handleQuantity("dec")} />
+              <Amount>{quantity}</Amount>
+              <Add  onClick = {()=> handleQuantity("inc")} />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Button onClick={handleClick} >ADD TO CART</Button>
           </AddContainer>
+          <button onClick={toggleModal} className="btn-modal">
+                Size Chart
+            </button>
+            {modal && (
+              <div className="modal">
+                <div onClick={toggleModal} className="overlay"></div>
+                <div className="modal-content">
+                  <h2>Size Chart</h2>
+                  <ImageSize src="https://giaycaosmartmen.com/wp-content/uploads/2020/09/bang-size-giay-converse.png"></ImageSize>
+                  <button className="close-modal" onClick={toggleModal}>
+                      CLOSE
+                  </button>
+                </div>
+              </div>
+            )}
         </InfoContainer>
       </Wrapper>
       <Newsletter />

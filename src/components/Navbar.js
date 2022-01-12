@@ -3,8 +3,10 @@ import React from 'react'
 import styled from 'styled-components';
 import { Badge } from '@material-ui/core';
 import {mobile} from "../responsive";
-//import {userSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { Link } from 'react-router-dom';
+import { logout ,userSelector} from '../redux/userRedux';
+
 
 const Container = styled.div`
     height: 60px;
@@ -59,7 +61,13 @@ const MenuItem = styled.div`
 
 
 const Navbar = () => {
-  // const quantity = useSelector(state=>state.cart.quantity)
+  
+  const quantity = useSelector(state=>state.cart.quantity);
+  
+  const dispatch = useDispatch()
+
+  const currentUser = useSelector(userSelector)
+  console.log(currentUser)
     return (
        <Container>
             <Wrapper>
@@ -72,7 +80,7 @@ const Navbar = () => {
                     <Link style={{textDecoration:'none', color:'black'}} to="/">
                       <MenuItem>HomePage</MenuItem>
                     </Link>
-                    <Link style={{textDecoration:'none', color:'black'}} to="/productList">
+                    <Link style={{textDecoration:'none', color:'black'}} to="/products/nike">
                       <MenuItem>Product</MenuItem>
                     </Link>
                     <MenuItem>Blog</MenuItem>
@@ -81,21 +89,28 @@ const Navbar = () => {
                     <Logo>ERROR</Logo>
                 </Center>
                 <Right>
-                    <Link style={{textDecoration:'none', color:'black'}} to ="/register">
-                      <MenuItem>REGISTER</MenuItem>
-                    </Link>  
-                    <Link style={{textDecoration:'none', color:'black'}} to ="/login">
-                      <MenuItem>SIN IN </MenuItem>
-                    </Link>
+                  {!currentUser ? 
+                  <Link style={{textDecoration:'none', color:'black'}} to ="/register">
+                  <MenuItem>REGISTER</MenuItem>
+                   </Link>  : <button style={{border:'none', color:'black', background:"white",fontSize:"14px",paddingTop:"5px", fontWeight:"800"}} onClick={() => dispatch(logout())} >
+                      LOGOUT 
+                    </button>
+                  }
+                    
+                    {!currentUser ?
+                     <Link style={{textDecoration:'none', color:'black'}}  to ="/login">
+                     <MenuItem>SIGN IN </MenuItem>
+                   </Link> : <p style={{marginLeft: "20px",fontSize:"18px"}}>{currentUser.username}</p>}                
+                    
                     <Link style={{textDecoration:'none', color:'black'}} to ="/cart">
                       <MenuItem>
-                          <Badge badgeContent={2} color="secondary">
+                          <Badge badgeContent={quantity} color="secondary">
                               <ShoppingCartOutlined />
                           </Badge>
                       </MenuItem>
                     </Link>  
                 </Right>
-            </Wrapper>
+            </Wrapper> 
           
        </Container>
     )
