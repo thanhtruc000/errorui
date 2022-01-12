@@ -83,7 +83,7 @@ const Navbar = () => {
                     <Link style={{textDecoration:'none', color:'black'}} to="/products/nike">
                       <MenuItem>Product</MenuItem>
                     </Link>
-                    <MenuItem>Blog</MenuItem>
+                   
                 </Left>
                 <Center>
                     <Logo>ERROR</Logo>
